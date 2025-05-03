@@ -35,8 +35,8 @@ body {
 
 .dashboard {
     display: flex;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     justify-content: center;
 }
 
@@ -145,11 +145,12 @@ body {
     display: none;
     position: absolute;
     left: 30%;
-    top: 30%;
+    top: 15%;
     background-color: #fff;
     flex-direction: column;
     padding: 20px;
     border-radius: 20px;
+    width: 500px;
     /* flex: 1.2; */
 }
 
@@ -211,6 +212,7 @@ body {
 
 .make-todo .timer-inputs {
     display: flex;
+    width: 100%;
 }
 
 .make-todo .timer-inputs #duration {
@@ -230,10 +232,12 @@ body {
     background-color: #eee;
     padding: 5px;
     margin-left: 3px;
+    width: 100%;
 }
 
 .make-todo select#dur-type {
     border: none;
+    width: 100%;
     outline: none;
     font-size: 2.1ch;
     background-color: transparent;
@@ -323,6 +327,18 @@ ul li .todo-card {
     /* background-color: #f55; */
     flex: 1;
 }
+select option{
+    font-size: 1.5ch;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+input#duration{
+background-color: #55adff;
+}
+
 
 /* mobile screen */
 
@@ -331,10 +347,24 @@ ul li .todo-card {
         font-size: 35px;
     }
     #activities-area{
-        left: 2%;
-        top: 2%;
-        min-width: 300px;
+        position: absolute;
+        left: 3%;
+        top: 25%;
+        max-width: 350px;
+        min-width: 100px;
     }
+    #activities-area .helper p{
+        font-size: 2ch;
+    }
+    #activities-area #todo{
+        max-width: 100%;
+        font-size: 1.5ch;
+    }
+    #activities-area .timer-inputs #duration,
+    #activities-area .timer-inputs #dur-type{
+        font-size:1.5ch;
+    }
+    
     .actions #finish-activity{
         font-size: 1.9ch;
         height: 100%;
@@ -348,4 +378,28 @@ ul li .todo-card {
         text-align: center;
         font-size: 1.7ch;
     }
+}
+@media (max-width: 390px) {
+    
+    #activities-area{
+        position: absolute;
+        left: 2%;
+        top: 25%;
+        max-width: 320px;
+        min-width: 100px;
+    }
+
+}
+@media (max-width: 350px) {
+    .big-msg h1{
+        font-size: 30px;
+    }
+    #activities-area{
+        position: absolute;
+        left: 0%;
+        top: 25%;
+        max-width: 290px;
+        min-width: 100px;
+    }
+
 }
