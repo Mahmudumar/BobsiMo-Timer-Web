@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Timer + Todo</title>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="areas" id="timer-area">
+            <div class="big-msg">
+                <h1>What are you working on? :)</h1>
+            </div>
+
+            <div class="sub-text">
+                Start timing yourself to stay focused
+            </div>
+
+            <div class="actions">
+                <div class="button" id="start-timer">Start</div>
+            </div>
+        </div>
+
+        <div class="areas" id="activities-area">
+            <div id="area-title" class="section">
+                <h1>Make An Activity To Focus On</h1>
+            </div>
+            <div class="make-todo">
+                <div class="section" id="todo-title">
+                    <div class="helper">
+                        <p>What are you going to do?</p>
+                    </div>
+                    <input placeholder="e.g Finish school project" type="text" name="todo" id="todo">
+                </div>
+
+                <div class="section" id="add-timer">
+                    <div class="helper">
+                        <p>How long will it take?</p>
+                    </div>
+
+                    <div class="timer-inputs">
+                        <input placeholder="e.g 10" type="text" name="duration" id="duration">
+                        <div id="durtype-area">
+                            <select name="durtype" id="dur-type">
+                                <option value="minutes">Minutes</option>
+                                <option value="hours">Hours</option>
+                                <option value="seconds">Seconds</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="actions">
+                    <div class="button" id="cancel-bt">
+                        Cancel
+                    </div>
+
+                    <div class="button" id="add-bt">
+                        Done
+                    </div>
+                </div>
+            </div>
+
+            <!-- <ul class="the-list">
+                <li>
+                    <div class="todo-card">
+                        <div class="card-widget" id="check-box">⨀</div>
+                        <div class="card-widget" id="todo-title">Do something</div>
+                        <div class="card-widget" id="time-todo-bt">
+                            
+                             <img src="./imgs/timer.svg" alt="">
+                        </div>
+                        <div class="card-widget" id="delete-bt">
+                            X
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

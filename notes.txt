@@ -1,0 +1,89 @@
+so this is the same app with the same feature just different design
+so we are going to have the main feature which is just...
+
+
+So the timer feature must have a name and that 
+name and its duration should be displayed in word form
+
+The purpose of this way of timing is to make it easy when
+coding or just working to recalibrate your mind to what you were
+going to head to. 
+
+That's it!
+
+
+So we ask...what are you working on.
+
+when we ask what are you working on, they will say, what they are working on
+like, coding a feature, making a small app, 
+finish school project.
+
+so you want to do your project for school? then type it here and
+choose the time duration which you want to do.
+
+This is the first feature.
+
+just ask and when they choose start, then you can have a popup asking you
+the name of "what you want to work on"
+
+and the "duration you want to work on it" 
+i.e. "how long you want to do this"
+
+
+Type what you are working on
+
+instead of choosing the literal time, you choose the duration you want to work
+so that there is later the flexibility of having a break
+
+
+MAKE DURATION CHOOSER
+so the duration chooser is just a flexible place you can enter
+manually just as google clock does. you enter the duration in
+
+hours (h) minutes (m) or seconds (s)
+
+so that it is like 
+
+00h 00m 00s
+
+when the person types: 800
+
+then it means 8minutes since there are 6 zeros there.
+
+800 is = 0800
+
+which eight minutes 00 seconds
+
+if it was 080000 then it would be 08h 00m 00s
+
+so it can be done, just take that as a value which 
+JS will take care of...somehow.
+
+so ...
+
+
+S03052506.36
+Alhamdulillah, we have reached a good milestone...what's now next?
+
+I hope that this benefits me once again so that i can benefit others with
+it. Another thing i was thinking about was to host it on github and tell
+people to play with it and tell me what they think. This way,
+perhaps i could get to see if the app itself is useful. 
+Perhaps they could drop their email if they enjoyed the app.
+
+This is only a prototype of the main thing but i still have to use it
+
+
+The value of it comes when you are (too overwhelmed and you need to
+list down your tasks just so that you can get them off your mind) 
+and then (when you get into one task, then you can zone in)
+
+1. Get to list down all your activities which you are yet to do
+2. Also get to zone in on one task when you start working
+3. you also get to end tasks at any time meaning that the time constraint
+doesnt really matter.
+4. when you get done, you can just say.
+
+
+So why not release this and say that people in various
+groups to play with it.
