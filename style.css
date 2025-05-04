@@ -396,9 +396,9 @@ background-color: #55adff;
     }
     #activities-area{
         position: absolute;
-        left: 0%;
+        left: -1%;
         top: 25%;
-        max-width: 290px;
+        max-width: 280px;
         min-width: 100px;
     }
 
