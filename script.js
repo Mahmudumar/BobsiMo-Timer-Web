@@ -3,7 +3,6 @@ let actions_area = document.querySelector('#timer-area .actions')
 let bigMsg = document.querySelector(".big-msg h1")
 let start_bt = document.querySelector('#start-timer')
 
-
 let activities_area = document.getElementById("activities-area")
 let cancel_activity_making_bt = document.querySelector('#cancel-bt')
 let make_activity_bt = document.querySelector('#add-bt')
