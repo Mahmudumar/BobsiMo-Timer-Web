@@ -11,11 +11,15 @@
 </head>
 
 <body>
-    
+
     <div class="dashboard">
         <div class="areas" id="timer-area">
             <div class="big-msg">
                 <h1>What are you working on? :)</h1>
+            </div>
+
+            <div class="big-countdown">
+                <h1>00:00:00</h1>
             </div>
 
             <div class="sub-text">
@@ -45,13 +49,21 @@
                     </div>
 
                     <div class="timer-inputs">
-                        <input placeholder="e.g 10" type="number" name="duration" id="duration">
-                        <div id="durtype-area">
-                            <select name="durtype" id="dur-type">
-                                <option value="minutes">Minutes</option>
-                                <option value="hours">Hours</option>
-                                <option value="seconds">Seconds</option>
-                            </select>
+                        <div class="hour-area">
+                            <input placeholder="00" type="number" name="hour-part" id="hour-part" min="00" value="00">
+                            <p>hours</p>
+                        </div>
+                        <div class="time-sep">:</div>
+                        <div class="min-area">
+                            <input placeholder="00" type="number" name="min-part" id="min-part" min="00" max="59"
+                                value="00">
+                            <p>minutes</p>
+                        </div>
+                        <div class="time-sep">:</div>
+                        <div class="sec-area">
+                            <input placeholder="00" type="number" name="sec-part" id="second-part" min="00" max="59"
+                                value="00">
+                            <p>seconds</p>
                         </div>
                     </div>
                 </div>
@@ -83,9 +95,11 @@
                 </li>
             </ul> -->
         </div>
+
     </div>
 
     <script src="./script.js"></script>
+    <script src="./script1.js"></script>
 </body>
 
 </html>

@@ -1,37 +1,47 @@
-let actions_area = document.querySelector('#timer-area .actions')
+const actions_area = document.querySelector('#timer-area .actions')
 
-let bigMsg = document.querySelector(".big-msg h1")
+const bigMsg = document.querySelector(".big-msg h1")
 let start_bt = document.querySelector('#start-timer')
 
-let activities_area = document.getElementById("activities-area")
-let cancel_activity_making_bt = document.querySelector('#cancel-bt')
-let make_activity_bt = document.querySelector('#add-bt')
+const activities_area = document.getElementById("activities-area")
+const cancel_activity_making_bt = document.querySelector('#cancel-bt')
+const make_activity_bt = document.querySelector('#add-bt')
 
-let activity_title_input = document.querySelector("input#todo")
-let activity_duration_input = document.querySelector("input#duration")
-let activity_durtype_input = document.querySelector("select#dur-type")
+const big_countdown = document.querySelector(".big-countdown h1")
+
+const activity_title_input = document.querySelector("#todo")
+const hour_input = document.querySelector("#hour-part")
+const min_input = document.querySelector("#min-part")
+const sec_input = document.querySelector("#second-part")
+// const make_activity_bt = document.querySelector('#add-bt')
+
+function getStartTime() {
+    let hour = hour_input.value.padStart(2, "0")
+    let min = min_input.value.padStart(2, "0")
+    let sec = sec_input.value.padStart(2, "0")
+
+    let start_time = `${hour}:${min}:${sec}`
+
+    console.log(start_time);
+
+    return start_time
+
+}
 
 let intervald;
 let duration_start;
 // let buttons = document.getElementsByClassName("button")
-function changeDurationToString(duration, durtype) {
-    // change the duration which is in format
-    // 00:10:00 into the format: 10 minutes
-    return `${duration} ${durtype}`
-}
 
-function convertDurationToSeconds(duration) {
 
-}
 
-function pauseTimer(activity, duration, durtype) {
+function pauseTimer(activity, duration) {
     console.log('pausing..., duration:', duration_start);
 
     let pause_bt = document.querySelector('#pause-timer')
     if (pause_bt.innerText == 'Pause') {
         stopTimer()
         pause_bt.textContent = 'Resume'
-        changeBigMsg("PAUSE", activity,duration_start,durtype)
+        changeBigMsg("PAUSE", activity, duration_start, durtype)
 
     } else if (pause_bt.innerText == 'Resume') {
         pause_bt.textContent = 'Pause'
@@ -39,62 +49,15 @@ function pauseTimer(activity, duration, durtype) {
     }
 }
 
-function startTimer(activity, duration, durtype) {
-    clearInterval(intervald)
-    duration_start = duration;
-    let one_second = 1000
-    let one_minute = 60 * one_second
-    let one_hour = 60 * one_minute
-
-    if (durtype.toLowerCase() === 'seconds') {
-        changeBigMsg("TIME-CHANGE", activity, duration_start, durtype)
-        intervald = setInterval(() => {
-            duration_start--
-            console.log(duration_start, durtype);
-            changeBigMsg("TIME-CHANGE", activity, duration_start, durtype)
-            if (duration_start <= 0) {
-                finishedActivity()
-            }
-        }, one_second)
-
-
-
-    }
-    else if (durtype.toLowerCase() === 'minutes') {
-        changeBigMsg("TIME-CHANGE", activity, duration_start, durtype)
-        intervald = setInterval(() => {
-            duration_start--
-            console.log(duration_start, durtype);
-            changeBigMsg("TIME-CHANGE", activity, duration_start, durtype)
-
-            if (duration_start <= 0) {
-                finishedActivity()
-            }
-        }, one_minute)
-    }
-    else if (durtype.toLowerCase() === 'hours') {
-        changeBigMsg("TIME-CHANGE", activity, duration_start, durtype)
-        intervald = setInterval(() => {
-            duration_start--
-            console.log(duration_start, durtype);
-            changeBigMsg("TIME-CHANGE", activity, duration_start, durtype)
-
-            if (duration_start <= 0) {
-                finishedActivity()
-            }
-        }, one_hour)
-    }
-}
-
-function start_timer(activity, duration, durtype) {
-    create2Bts(activity, duration, durtype)
+function start_timer(activity, duration) {
+    create2Bts(activity, duration)
 
 
     // make the secondary text disappear
     eraseSubText()
 
     // timer starts here
-    startTimer(activity, duration, durtype)
+    startTimer(activity, duration)
 }
 
 function eraseSubText() {
@@ -117,14 +80,15 @@ function makeActivity() {
     // You have 10mins to do homework
     // // get activity entry value
     let activity = activity_title_input.value
-    let duration = activity_duration_input.value
-    let durtype = activity_durtype_input.value
+    let duration = getStartTime()
+
 
     exitActivityMaking()
-    start_timer(activity, duration, durtype)
+
+    start_timer(activity, duration)
 }
 
-function create2Bts(activity, duration, durtype) {
+function create2Bts(activity, duration) {
     // change the start button to_what
     // this happens when the finish Activity button
     // is clicked
@@ -140,7 +104,7 @@ function create2Bts(activity, duration, durtype) {
     let finish_bt = document.querySelector("#finish-activity")
 
     pause_bt.addEventListener('click', () => {
-        pauseTimer(activity, duration, durtype)
+        pauseTimer(activity, duration)
     })
 
     finish_bt.addEventListener('click', finishedActivity)

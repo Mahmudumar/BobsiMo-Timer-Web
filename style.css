@@ -67,6 +67,16 @@ body {
     /* background-color: #55adff; */
 }
 
+#timer-area .big-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    /* background-color: #55adff; */
+
+}
+
 #timer-area .sub-text {
     display: flex;
     justify-content: center;
@@ -93,6 +103,26 @@ body {
     text-align: center;
     color: #1da431;
     /* add poppins as font here */
+}
+
+.big-countdown h1 {
+    /* border: 1.5px solid #1da431; */
+    border-radius: 50px;
+    font-size: 20px;
+    color: #55adff;
+    cursor: pointer;
+    /* background-color: #55adff; */
+    padding: 20px;
+}
+
+.big-countdown h1:hover {
+    font-size: 22px;
+}
+
+.big-countdown h1:active {
+    /* border: 1.5px solid #55adff; */
+    font-size: 20px;
+    color: #55adff;
 }
 
 .sub-text {
@@ -215,7 +245,7 @@ body {
     width: 100%;
 }
 
-.make-todo .timer-inputs #duration {
+.make-todo .timer-inputs input {
     border: none;
     outline: none;
     font-size: 2.3ch;
@@ -227,21 +257,27 @@ body {
 
 }
 
-.make-todo #durtype-area {
+.timer-inputs .time-sep {
     display: flex;
-    background-color: #eee;
-    padding: 5px;
-    margin-left: 3px;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.timer-inputs .hour-area,
+.timer-inputs .min-area,
+.timer-inputs .sec-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
 }
 
-.make-todo select#dur-type {
-    border: none;
-    width: 100%;
-    outline: none;
-    font-size: 2.1ch;
-    background-color: transparent;
-
+.timer-inputs .hour-area p,
+.timer-inputs .min-area p,
+.timer-inputs .sec-area p {
+    color: #888;
 }
 
 .make-todo #add-bt {
@@ -327,7 +363,8 @@ ul li .todo-card {
     /* background-color: #f55; */
     flex: 1;
 }
-select option{
+
+select option {
     font-size: 1.5ch;
     background-color: #fff;
     border: none;
@@ -335,70 +372,84 @@ select option{
 }
 
 
-input#duration{
-background-color: #55adff;
+input#duration {
+    background-color: #55adff;
 }
 
 
 /* mobile screen */
 
 @media (max-width: 700px) {
-    .big-msg h1{
+    .big-msg h1 {
         font-size: 35px;
     }
-    #activities-area{
+
+    #activities-area {
         position: absolute;
         left: 3%;
         top: 25%;
         max-width: 350px;
         min-width: 100px;
     }
-    #activities-area .helper p{
+
+    #activities-area .helper p {
         font-size: 2ch;
     }
-    #activities-area #todo{
+
+    .timer-inputs .hour-area p,
+    .timer-inputs .min-area p,
+    .timer-inputs .sec-area p {
+        font-size: 1.5ch;
+    }
+
+    #activities-area #todo {
         max-width: 100%;
         font-size: 1.5ch;
     }
-    #activities-area .timer-inputs #duration,
-    #activities-area .timer-inputs #dur-type{
-        font-size:1.5ch;
+
+    #activities-area .timer-inputs input {
+        font-size: 1.5ch;
     }
-    
-    .actions #finish-activity{
+
+    .actions #finish-activity {
         font-size: 1.9ch;
         height: 100%;
         text-align: center;
     }
-    .actions #pause-timer{
+
+    .actions #pause-timer {
         height: 100%;
     }
-    .actions #restart-timer{
+
+    .actions #restart-timer {
         height: 100%;
         text-align: center;
         font-size: 1.7ch;
     }
 }
+
 @media (max-width: 390px) {
-    
-    #activities-area{
+
+    #activities-area {
         position: absolute;
-        left: 2%;
+        left: 0%;
         top: 25%;
         max-width: 320px;
         min-width: 100px;
     }
 
 }
+
 @media (max-width: 350px) {
-    .big-msg h1{
+    .big-msg h1 {
         font-size: 30px;
     }
-    #activities-area{
+
+    #activities-area {
         position: absolute;
         left: -1%;
         top: 25%;
-        max-width: 280px;
+        max-width: 300px;
         min-width: 100px;
     }
 
