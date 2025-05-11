@@ -98,6 +98,7 @@ function makeActivity() {
     // You have 10mins to do homework
     // // get activity entry value
     let activity = activity_title_input.value
+
     let duration = getStartTime()
 
 
@@ -177,7 +178,6 @@ function changeBigMsg(type = "DEFAULT",
         small_countdown.classList.add(type)
 
     } else if (type == "TIME-CHANGE" && duration && durtype) {
-        const time_msg = `You have ${duration} ${durtype} to ${activity.toLowerCase()}`
         bigMsg.textContent = `${time_msg}`
         bigMsg.classList = ""
 
