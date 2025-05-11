@@ -5,6 +5,7 @@
     border-radius: 5px;
     font-family: sans-serif;
     font-size: 15px;
+
 }
 
 body {
@@ -14,6 +15,7 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 /* every button's style */
@@ -36,14 +38,17 @@ body {
 .dashboard {
     display: flex;
     width: 95%;
-    height: 95%;
+    height: 100%;
+    /* background-color: #55adff; */
     justify-content: center;
+    overflow: hidden;
 }
 
 .areas {
     margin: 20px;
     box-shadow: 5px 2px 10px #aaa;
 }
+
 
 /* timer message */
 #timer-area {
@@ -67,14 +72,34 @@ body {
     /* background-color: #55adff; */
 }
 
-#timer-area .big-countdown {
+/* proxies when switched */
+#timer-area .small-msg {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     flex: 1;
     /* background-color: #55adff; */
+}
 
+#timer-area .big-countdown {
+    display: flex;
+    justify-content: center;
+    align-self: end;
+    align-items: center;
+    width: 100%;
+    flex: 2;
+    text-align: center;
+}
+
+#timer-area .small-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    text-align: center;
+    /* background-color: #55adff; */
 }
 
 #timer-area .sub-text {
@@ -94,18 +119,65 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
-    /* background-color: #55adff; */
     flex: .1;
+    /* background-color: #55adff; */
 }
 
 .big-msg h1 {
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
     color: #1da431;
     /* add poppins as font here */
 }
 
-.big-countdown h1 {
+.big-msg .PAUSE {
+    color: #f55;
+}
+
+.big-msg .TIME-CHANGE {
+    color: #1da431;
+}
+
+.big-msg .FINISHED {
+    color: #55adff;
+}
+
+/* ------------------------------------ */
+.small-msg h1 {
+    font-size: 20px;
+    text-align: center;
+    color: #55adff;
+    border: 2px solid#55adff;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 20px;
+}
+.small-msg .PAUSE{
+    color: #f55;
+    border: 2px solid #f55;
+}
+
+.small-msg .TIME-CHANGE {
+    color: #55adff;
+}
+
+.small-msg .FINISHED {
+    color: #55adff;
+}
+
+.small-msg h1:hover {
+    font-size: 20.2px;
+
+}
+
+.small-msg h1:active {
+    /* border: 1.5px solid #55adff; */
+    font-size: 20px;
+}
+
+
+/* --------------------------------- */
+.small-countdown h1 {
     /* border: 1.5px solid #1da431; */
     border-radius: 50px;
     font-size: 20px;
@@ -113,16 +185,36 @@ body {
     cursor: pointer;
     /* background-color: #55adff; */
     padding: 20px;
+    border: 2px solid #55adff;
 }
 
-.big-countdown h1:hover {
-    font-size: 22px;
+.small-countdown .PAUSE {
+    color: #f55;
+    border: 2px solid #f55;
 }
 
-.big-countdown h1:active {
+.small-countdown .FINISHED {
+    color: #55adff;
+}
+
+.small-countdown h1:hover {
+    font-size: 20.2px;
+}
+
+.small-countdown h1:active {
     /* border: 1.5px solid #55adff; */
     font-size: 20px;
-    color: #55adff;
+}
+
+/* classlist to be toggled */
+.big-countdown h1 {
+    border: none;
+    font-size: 50px;
+    color: #1da431;
+}
+
+.big-countdown .PAUSE {
+    color: #f55;
 }
 
 .sub-text {
@@ -442,7 +534,7 @@ input#duration {
 
 @media (max-width: 350px) {
     .big-msg h1 {
-        font-size: 30px;
+        font-size: 35px;
     }
 
     #activities-area {

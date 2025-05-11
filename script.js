@@ -1,4 +1,6 @@
+const timer_area = document.querySelector("#timer-area")
 const actions_area = document.querySelector('#timer-area .actions')
+
 
 const bigMsg = document.querySelector(".big-msg h1")
 let start_bt = document.querySelector('#start-timer')
@@ -7,7 +9,7 @@ const activities_area = document.getElementById("activities-area")
 const cancel_activity_making_bt = document.querySelector('#cancel-bt')
 const make_activity_bt = document.querySelector('#add-bt')
 
-const big_countdown = document.querySelector(".big-countdown h1")
+const small_countdown = document.querySelector(".small-countdown h1")
 
 const activity_title_input = document.querySelector("#todo")
 const hour_input = document.querySelector("#hour-part")
@@ -29,23 +31,39 @@ function getStartTime() {
 }
 
 let intervald;
-let duration_start;
+let timer;
 // let buttons = document.getElementsByClassName("button")
 
 
 
 function pauseTimer(activity, duration) {
-    console.log('pausing..., duration:', duration_start);
+    console.log('pausing..., duration:', timer);
 
     let pause_bt = document.querySelector('#pause-timer')
+
     if (pause_bt.innerText == 'Pause') {
         stopTimer()
         pause_bt.textContent = 'Resume'
-        changeBigMsg("PAUSE", activity, duration_start, durtype)
+
+
+        let duration_ = timer.split(":")
+        let hour = parseInt(duration_[0])
+        let min = parseInt(duration_[1])
+        let sec = parseInt(duration_[2])
+
+        if (hour >= 1) {
+            changeBigMsg("PAUSE", activity, hour, "hours")
+        }
+        else if (hour == 0 && min > 1) {
+            changeBigMsg("PAUSE", activity, min, "minutes")
+        }
+        else if (hour == 0 && min == 0 && sec >= 1) {
+            changeBigMsg("PAUSE", activity, sec, "seconds")
+        }
 
     } else if (pause_bt.innerText == 'Resume') {
         pause_bt.textContent = 'Pause'
-        startTimer(activity, duration_start, durtype)
+        startTimer(activity, timer)
     }
 }
 
@@ -134,35 +152,58 @@ function finishedActivity() {
 
 }
 
+let my_green = "#1da431"
+let my_red = "#f55"
+let my_blue = "#55adff"
+
+
 function changeBigMsg(type = "DEFAULT",
     activity = 'do something',
     duration = 5,
     durtype = 'Minutes') {
     // type is just template names of how the message will
     // be displayed
-    let my_green = "#1da431"
-    let my_red = "#f55"
-    let my_blue = "#55adff"
+
+
 
     if (type == "FINISHED") {
         const finish_msg = `Congratulations on finishing your activity :D`
         bigMsg.textContent = `${finish_msg}`
-        bigMsg.style.color = my_blue
+        bigMsg.classList = ""
+        bigMsg.classList.add(type)
+
+        // also change the countdown color
+        small_countdown.classList = ""
+        small_countdown.classList.add(type)
 
     } else if (type == "TIME-CHANGE" && duration && durtype) {
         const time_msg = `You have ${duration} ${durtype} to ${activity.toLowerCase()}`
         bigMsg.textContent = `${time_msg}`
-        bigMsg.style.color = my_green
+        bigMsg.classList = ""
 
-    } else if (type === "PAUSE") {
+        // also change the countdown color
+        small_countdown.classList = ""
+        // small_countdown.classList.add(type)
+
+    } else if (type === "PAUSE" && duration && durtype) {
         const pause_msg = `You are on a break now. ${duration} ${durtype} remaining.`
         bigMsg.textContent = `${pause_msg}`
-        bigMsg.style.color = my_red
+        bigMsg.classList = ""
+        bigMsg.classList.add(type)
+
+        // also change the countdown color
+        small_countdown.classList = ""
+        small_countdown.classList.add(type)
+
     }
     else if (type == "DEFAULT") {
         const default_msg = "What are you working on? :)"
         bigMsg.textContent = `${default_msg}`
-        bigMsg.style.color = my_green
+        bigMsg.classList = ""
+        bigMsg.classList.add(type)
+        // also change the countdown color
+        small_countdown.classList = ""
+        small_countdown.classList.add(type)
     }
 }
 
